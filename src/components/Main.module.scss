@@ -1,0 +1,23 @@
+.mainContainer {
+  height: 92vh;
+  width: 100vw;
+  background-image: url("../img/concert.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .mainText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    color: white;
+    font-size: 3.5rem;
+    width: 500px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+  }
+}
