@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import Navbar from "./components/Navbar";
 import "./App.module.scss";
 import Main from "./components/Main";
-
+import VinylContainer from "./components/Vinyl-Container";
 const App = () => {
   const elRef = useRef<HTMLDivElement>(null);
   const executeScroll = () => {
@@ -12,6 +12,7 @@ const App = () => {
     <>
       <Navbar toElement={executeScroll} />
       <Main />
+      <VinylContainer />
       <div ref={elRef} style={{ height: "1000px" }}>
         element
       </div>

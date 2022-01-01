@@ -1,0 +1,17 @@
+.container {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100vw;
+  min-height: 60vh;
+  background-color: #868e96;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+@media screen and (max-width: 870px) {
+  .container {
+    padding-top: 20px;
+    grid-template-columns: 1fr;
+  }
+}
