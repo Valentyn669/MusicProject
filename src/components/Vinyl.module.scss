@@ -21,11 +21,9 @@
     position: relative;
     z-index: 2;
     &:hover + .vinylMainColor .vinylImage {
-      transition: all 1s;
       transform: translateX(80px) rotate(90deg);
     }
     &:hover + .vinylMainColor .vinylColor {
-      transition: all 1s;
       transform: translateX(80px) rotate(90deg);
     }
   }
@@ -36,13 +34,11 @@
       z-index: 1;
       width: 260px;
       height: 200px;
-      transition: all 1s;
+      transition: transform 1s;
       &:hover {
-        transition: all 1s;
         transform: translateX(90px) rotate(90deg);
       }
       &:hover + .vinylColor {
-        transition: all 1s;
         transform: translateX(90px) rotate(90deg);
       }
     }
@@ -53,9 +49,8 @@
       position: absolute;
       top: 50px;
       left: 70px;
-      transition: all 1s;
+      transition: transform 1s;
       &:hover {
-        transition: all 1s;
         transform: translateX(90px) rotate(90deg);
       }
     }

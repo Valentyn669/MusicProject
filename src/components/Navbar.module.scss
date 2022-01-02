@@ -1,4 +1,6 @@
 .navbar {
+  z-index: 999;
+  position: fixed;
   display: flex;
   justify-content: space-around;
   height: 80px;
@@ -15,10 +17,51 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+    position: relative;
     li {
       cursor: pointer;
       font-weight: 500;
       font-size: 20px;
+    }
+  }
+
+  .btn {
+    position: absolute;
+    right: 50px;
+    top: 23px;
+    width: 40px;
+    display: none;
+    border: none;
+    background-color: #c5c6c7;
+    .threeLines {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    .btn {
+      display: block;
+    }
+
+    .menuList {
+      flex-direction: column;
+      margin-top: -40px;
+      margin-left: -30px;
+      li:nth-child(1) {
+        border-top: none;
+      }
+      li {
+        padding: 10px;
+        width: 100%;
+        border-top: 1px solid black;
+        text-align: center;
+        margin-right: 0px;
+      }
     }
   }
 }

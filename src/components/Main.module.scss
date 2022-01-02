@@ -1,5 +1,5 @@
 .mainContainer {
-  height: 92vh;
+  height: 75vh;
   width: 100vw;
   background-image: url("../img/concert.jpg");
   background-repeat: no-repeat;
@@ -15,8 +15,10 @@
     border-radius: 2px;
     color: white;
     font-size: 3.5rem;
-    width: 500px;
-    height: 300px;
+    text-align: center;
+    padding: 40px;
+    width: 50%;
+    height: 200px;
     background-color: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(5px);
   }
