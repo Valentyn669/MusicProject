@@ -5,7 +5,6 @@ interface databaseProps {
   artistsDatabase: {
     artists: {
       coverUrl: string;
-      vinylColor: string;
       albumTitle: string;
       artist: string;
     }[];
@@ -21,7 +20,6 @@ export const VinylContainer: React.FC<databaseProps> = ({
         <Vinyl
           key={data.coverUrl}
           coverUrl={data.coverUrl}
-          vinylColor={data.vinylColor}
           albumTitle={data.albumTitle}
           artist={data.artist}
         />

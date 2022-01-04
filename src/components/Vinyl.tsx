@@ -3,14 +3,12 @@ import vinylImage from "../img/vinyl.png";
 
 interface VinylProps {
   coverUrl?: string;
-  vinylColor?: string;
   albumTitle: string;
   artist: string;
 }
 
 export const Vinyl: React.FC<VinylProps> = ({
   coverUrl,
-  vinylColor,
   albumTitle,
   artist,
 }) => {
@@ -23,13 +21,13 @@ export const Vinyl: React.FC<VinylProps> = ({
         }
         alt="cover"
         className={classes.vinylCover}
-      ></img>
+      />
       <div className={classes.vinylMainColor}>
         <img className={classes.vinylImage} src={vinylImage} alt="vinyl" />
         <div
-          style={{ backgroundColor: `${vinylColor || "white"}` }}
-          className={classes.vinylColor}
-        ></div>
+          style={{ backgroundImage: `url(${coverUrl})` }}
+          className={classes.vinylDiskImage}
+        />
       </div>
       <div className={classes.tags}>
         <h1>{albumTitle}</h1>

@@ -1,30 +1,31 @@
 .singleDisk {
-  height: 300px;
-  width: 300px;
+  height: 18.75rem;
+  width: 18.75rem;
   position: relative;
 
   .tags {
+    color: white;
     h1 {
-      font-size: 24px;
-      margin-top: 5px;
-      margin-bottom: -10px;
+      font-size: 1.5rem;
+      margin-top: 0.3rem;
+      margin-bottom: -0.625rem;
     }
     p {
-      font-size: 20px;
+      font-size: 1.25rem;
     }
   }
 
   .vinylCover {
-    height: 200px;
-    width: 200px;
+    height: 12.5rem;
+    width: 12.5rem;
     background-color: brown;
     position: relative;
     z-index: 2;
     &:hover + .vinylMainColor .vinylImage {
-      transform: translateX(80px) rotate(90deg);
+      transform: translateX(5rem) rotate(90deg);
     }
-    &:hover + .vinylMainColor .vinylColor {
-      transform: translateX(80px) rotate(90deg);
+    &:hover + .vinylMainColor .vinylDiskImage {
+      transform: translateX(5rem) rotate(90deg);
     }
   }
   .vinylMainColor {
@@ -32,26 +33,28 @@
       position: absolute;
       top: 0;
       z-index: 1;
-      width: 260px;
-      height: 200px;
+      width: 16.25rem;
+      height: 12.5rem;
       transition: transform 1s;
       &:hover {
-        transform: translateX(90px) rotate(90deg);
+        transform: translateX(5.625rem) rotate(90deg);
       }
-      &:hover + .vinylColor {
-        transform: translateX(90px) rotate(90deg);
+      &:hover + .vinylDiskImage {
+        transform: translateX(5.625rem) rotate(90deg);
       }
     }
-    .vinylColor {
-      background-color: red;
-      height: 110px;
-      width: 110px;
+    .vinylDiskImage {
+      background-color: white;
+      height: 6.875rem;
+      width: 6.875rem;
+      background-repeat: no-repeat;
+      background-size: contain;
       position: absolute;
-      top: 50px;
-      left: 70px;
+      top: 3.125rem;
+      left: 4.375rem;
       transition: transform 1s;
       &:hover {
-        transform: translateX(90px) rotate(90deg);
+        transform: translateX(5.625rem) rotate(90deg);
       }
     }
   }

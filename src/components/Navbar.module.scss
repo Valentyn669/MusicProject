@@ -1,66 +1,83 @@
+@import "../colors.scss";
+
 .navbar {
+  max-width: 100%;
+  position: static;
   z-index: 999;
-  position: fixed;
   display: flex;
   justify-content: space-around;
-  height: 80px;
+  height: 5rem;
   width: 100vw;
-  background-color: #c5c6c7;
+  color: white;
   img {
-    width: 60px;
-    height: 60px;
-    padding: 10px;
+    filter: invert(100%);
+    width: 3.75rem;
+    height: 3.75rem;
+    padding: 0.625rem;
   }
   .menuList {
     display: flex;
     list-style: none;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 1.25rem;
     position: relative;
     li {
       cursor: pointer;
       font-weight: 500;
-      font-size: 20px;
+      font-size: 1.25rem;
     }
   }
 
   .btn {
     position: absolute;
-    right: 50px;
-    top: 23px;
-    width: 40px;
+    right: 3.125rem;
+    top: 1.45rem;
+    width: 2.5rem;
     display: none;
     border: none;
-    background-color: #c5c6c7;
+    background-color: transparent;
     .threeLines {
-      width: 25px;
-      height: 25px;
+      fill: white;
+      width: 1.6rem;
+      height: 1.6rem;
     }
   }
 }
 
+.scrollBar {
+  transition: background-color 1s;
+  top: 0;
+  position: sticky;
+  width: 100vw;
+  background-color: $magenta;
+}
+
 @media screen and (max-width: 700px) {
   .navbar {
+    transition: background-color 1s;
+    position: fixed;
+    background-color: $red;
     flex-direction: column;
     height: auto;
+    width: 100%;
     .btn {
       display: block;
     }
 
     .menuList {
       flex-direction: column;
-      margin-top: -40px;
-      margin-left: -30px;
+      margin-top: -2.5rem;
+      margin-left: -1.875rem;
       li:nth-child(1) {
         border-top: none;
       }
       li {
-        padding: 10px;
+        padding: 0.625rem;
         width: 100%;
         border-top: 1px solid black;
         text-align: center;
-        margin-right: 0px;
+        margin-right: 0;
       }
     }
   }

@@ -1,0 +1,44 @@
+@import "../colors.scss";
+.footer {
+  padding-top: 1.8rem;
+  background-color: $darkgrey;
+  color: white;
+  height: 100%;
+  .line {
+    width: 25rem;
+    margin: 0 auto;
+    border-top: 2px solid white;
+    border-radius: 6.25rem;
+  }
+  .main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    img {
+      padding: 1.25rem;
+      width: 4.375rem;
+      height: 4.375rem;
+      filter: invert(100%);
+    }
+    ul {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      list-style: none;
+      li {
+        cursor: pointer;
+      }
+    }
+  }
+  .socials {
+    display: flex;
+    justify-content: center;
+
+    ul {
+      list-style: none;
+      margin-left: -2.375rem;
+      svg {
+        fill: white;
+      }
+    }
+  }
+}

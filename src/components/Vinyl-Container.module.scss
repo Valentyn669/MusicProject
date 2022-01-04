@@ -1,7 +1,10 @@
+@import "../colors.scss";
 .container {
+  max-width: 100%;
+  padding-top: 0.625rem;
   min-height: 60vh;
   width: 100vw;
-  background-color: #868e96;
+  background-color: $brownish;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
@@ -9,13 +12,13 @@
 }
 @media screen and (max-width: 900px) {
   .container {
-    padding-top: 20px;
+    padding-top: 1.25rem;
     grid-template-columns: 1fr 1fr;
   }
 }
 @media screen and (max-width: 768px) {
   .container {
-    padding-top: 20px;
+    padding-top: 1.25rem;
     grid-template-columns: 1fr;
   }
 }
