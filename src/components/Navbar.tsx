@@ -2,11 +2,9 @@ import classes from "./Navbar.module.scss";
 import logo from "../img/logo.png";
 import { ReactComponent as Threelines } from "../img/threelines.svg";
 import { useEffect, useState } from "react";
-interface NavbarProps {
-  toElement: () => void;
-}
+import { Link } from "react-router-dom";
 
-export const Navbar: React.FC<NavbarProps> = ({ toElement }) => {
+export const Navbar: React.FC = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [scrollHeight, setScrollHeight] = useState(window.scrollY);
@@ -46,14 +44,17 @@ export const Navbar: React.FC<NavbarProps> = ({ toElement }) => {
   return (
     <>
       <nav className={navbarClass}>
-        <img src={logo} alt="Music logo" />
+        <Link to="/">
+          <img src={logo} alt="Music logo" />
+        </Link>
         {(toggleMenu || screenWidth > 700) && (
           <ul className={classes.menuList}>
-            <li onClick={toElement}>Blog</li>
-            <li>Artists</li>
-            <li>Music</li>
-            <li>Contact</li>
-            <li>Order</li>
+            <Link to="/">Home</Link>
+            <Link to="/blog">Blog</Link>
+            <Link to="/artists">Artists</Link>
+            <Link to="/albums">Albums</Link>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
           </ul>
         )}
         {/* <Threelines onClick={toggleNav} className={classes.threeLines} /> */}

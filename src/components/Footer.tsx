@@ -5,7 +5,7 @@ import { ReactComponent as Instagram } from "../img/socials/instagram.svg";
 import { ReactComponent as Tiktok } from "../img/socials/tiktok.svg";
 import { ReactComponent as Twitter } from "../img/socials/twitter.svg";
 import { ReactComponent as Youtube } from "../img/socials/youtube.svg";
-
+import { Link } from "react-router-dom";
 export const Footer: React.FC = () => {
   return (
     <>
@@ -13,45 +13,55 @@ export const Footer: React.FC = () => {
         <div className={classes.main}>
           <img src={logo} alt="logo" />
           <ul>
-            <li>
-              <h2>Blog</h2>
-            </li>
+            <Link to="/blog">Blog</Link>
             <p>Address: Chernivtsi, Holovna St, 1</p>
           </ul>
           <ul>
-            <li>
-              <h2>Artists</h2>
-            </li>
-            <li>
-              <h2>Albums</h2>
-            </li>
+            <Link to="/artists">Artists</Link>
+            <Link to="/albums">Albums</Link>
           </ul>
           <ul>
-            <li>
-              <h2>Contact</h2>
-            </li>
-            <li>
-              <h2>Order</h2>
-            </li>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
           </ul>
         </div>
         <div className={classes.line} />
         <div className={classes.socials}>
           <ul>
             <li>
-              <a href="facebook">
+              <a
+                target="_blank"
+                href="https://www.facebook.com/theweeknd"
+                rel="noreferrer"
+              >
                 <Facebook />
               </a>
-              <a href="instagram">
+              <a
+                target="_blank"
+                href="https://www.instagram.com/kanyewest"
+                rel="noreferrer"
+              >
                 <Instagram />
               </a>
-              <a href="youtube">
+              <a
+                target="_blank"
+                href="https://www.youtube.com/user/DrakeOfficial"
+                rel="noreferrer"
+              >
                 <Youtube />
               </a>
-              <a href="tiktok">
+              <a
+                target="_blank"
+                href="https://www.tiktok.com/@postmalone"
+                rel="noreferrer"
+              >
                 <Tiktok />
               </a>
-              <a href="twitter">
+              <a
+                target="_blank"
+                href="https://twitter.com/denzelcurry"
+                rel="noreferrer"
+              >
                 <Twitter />
               </a>
             </li>

@@ -59,3 +59,39 @@
     }
   }
 }
+@media screen and (max-width: 400px) {
+  .singleDisk {
+    height: 14rem;
+    width: 14rem;
+    position: relative;
+
+    .tags {
+      color: white;
+      h1 {
+        font-size: 1.5rem;
+        margin-top: 0.3rem;
+        margin-bottom: -0.625rem;
+      }
+      p {
+        font-size: 1.25rem;
+      }
+    }
+    .vinylCover {
+      height: 10rem;
+      width: 10rem;
+      margin-top: -0.5rem;
+    }
+    .vinylMainColor {
+      .vinylImage {
+        width: 12rem;
+        height: 9rem;
+      }
+      .vinylDiskImage {
+        height: 4.5rem;
+        width: 4.5rem;
+        top: 2.3rem;
+        left: 4.375rem;
+      }
+    }
+  }
+}

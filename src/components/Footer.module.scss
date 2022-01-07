@@ -1,4 +1,5 @@
 @import "../colors.scss";
+
 .footer {
   padding-top: 1.8rem;
   background-color: $darkgrey;
@@ -11,7 +12,10 @@
     border-radius: 6.25rem;
   }
   .main {
-    display: flex;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-bottom: 1rem;
     justify-content: space-around;
     align-items: center;
     img {
@@ -22,10 +26,16 @@
     }
     ul {
       display: grid;
-      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-columns: 1fr;
       list-style: none;
-      li {
-        cursor: pointer;
+      gap: 1rem;
+      p {
+        margin: 0;
+      }
+      a {
+        text-decoration: none;
+        font-size: 1.4rem;
+        color: white;
       }
     }
   }
@@ -38,6 +48,36 @@
       margin-left: -2.375rem;
       svg {
         fill: white;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .footer {
+    .line {
+      width: 10rem;
+    }
+    .socials {
+      svg {
+        width: 2rem;
+      }
+    }
+    .main {
+      grid-template-columns: 1fr 1fr;
+      padding: 1rem;
+      img {
+        width: 3rem;
+        height: 3rem;
+      }
+      ul {
+        padding: 1rem;
+        a {
+          font-size: 1rem;
+        }
+        p {
+          font-size: 1rem;
+        }
       }
     }
   }
