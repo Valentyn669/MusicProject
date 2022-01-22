@@ -2,15 +2,13 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import classes from "./App.module.scss";
-import Main from "./components/Main";
-import VinylContainer from "./components/Vinyl-Container";
-import { artistsDatabase } from "./database";
+import Main from "./pages/Main";
 import Footer from "./components/Footer";
-import About from "./components/About";
-import Blog from "./components/Blog";
-import Albums from "./components/Albums";
-import Artists from "./components/Artists";
-import Contact from "./components/Contact";
+import About from "./pages/About";
+import Blog from "./pages/Blog";
+import Albums from "./pages/Albums";
+import Artists from "./pages/Artists";
+import Contact from "./pages/Contact";
 
 const App = () => {
   return (
@@ -23,7 +21,7 @@ const App = () => {
             element={
               <>
                 <Main />
-                <VinylContainer artistsDatabase={artistsDatabase} />
+                {/* <VinylContainer artistsDatabase={artistsDatabase} /> */}
               </>
             }
           />
@@ -34,7 +32,6 @@ const App = () => {
             element={
               <>
                 <Albums />
-                <VinylContainer artistsDatabase={artistsDatabase} />
               </>
             }
           />

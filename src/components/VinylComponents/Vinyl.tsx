@@ -1,5 +1,5 @@
 import classes from "./Vinyl.module.scss";
-import vinylImage from "../img/vinyl.png";
+import vinylImage from "../../img/vinyl.png";
 
 interface VinylProps {
   coverUrl?: string;
@@ -7,11 +7,7 @@ interface VinylProps {
   artist: string;
 }
 
-export const Vinyl: React.FC<VinylProps> = ({
-  coverUrl,
-  albumTitle,
-  artist,
-}) => {
+export const Vinyl: React.FC<any> = ({ coverUrl, albumTitle, artist }) => {
   return (
     <div className={classes.singleDisk}>
       <img

@@ -1,7 +1,13 @@
+@import "./colors.scss";
 .appContainer {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: $lightgrey;
+  background-image: url("./img/contact.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100%;
 }
 
 .contentWrap {
