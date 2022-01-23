@@ -1,3 +1,6 @@
+.link {
+  text-decoration: none;
+}
 .singleDisk {
   height: 18.75rem;
   width: 18.75rem;
@@ -61,6 +64,7 @@
 }
 @media screen and (max-width: 400px) {
   .singleDisk {
+    margin-bottom: 4rem;
     height: 14rem;
     width: 14rem;
     position: relative;

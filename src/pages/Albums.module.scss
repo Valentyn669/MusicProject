@@ -1,0 +1,41 @@
+@import "../colors.scss";
+
+.formContainer {
+  box-shadow: 1rem 1rem 0rem black;
+  background-color: $lightgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin: 0 auto;
+  height: 15rem;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  .buttonContainer {
+    .Dropdownbutton {
+      border-radius: 0.3rem;
+      border: none;
+      background-color: $brownish;
+      color: white;
+      font-size: 1rem;
+      padding: 1rem 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .formContainer {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .formContainer {
+    box-shadow: none;
+    width: 100%;
+    margin-bottom: 0rem;
+  }
+  .albumForm {
+    margin-top: 5.25rem;
+  }
+}

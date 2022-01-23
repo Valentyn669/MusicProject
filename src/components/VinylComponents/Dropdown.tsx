@@ -1,12 +1,12 @@
 import React, { FC } from "react";
-
+import classes from "./Dropdown.module.scss";
 const Dropdown: FC<any> = (props) => {
   const dropdownChanged = (e: { target: { value: any } }) => {
     props.changed(e.target.value);
   };
 
   return (
-    <div>
+    <div className={classes.container}>
       <label>{props.label}</label>
       <select value={props.selectedValue} onChange={dropdownChanged}>
         <option key={0}>Select...</option>

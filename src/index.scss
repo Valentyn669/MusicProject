@@ -1,0 +1,12 @@
+@import "./colors.scss";
+
+body {
+  margin: 0;
+  font-family: "Be Vietnam Pro";
+}
+.center {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

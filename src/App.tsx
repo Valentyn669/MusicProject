@@ -1,4 +1,3 @@
-import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import classes from "./App.module.scss";
@@ -9,7 +8,7 @@ import Blog from "./pages/Blog";
 import Albums from "./pages/Albums";
 import Artists from "./pages/Artists";
 import Contact from "./pages/Contact";
-
+import AlbumDetails from "./pages/AlbumDetails";
 const App = () => {
   return (
     <div className={classes.appContainer}>
@@ -27,14 +26,8 @@ const App = () => {
           />
           <Route path="/artists" element={<Artists />} />
           <Route path="/blog" element={<Blog />} />
-          <Route
-            path="/albums"
-            element={
-              <>
-                <Albums />
-              </>
-            }
-          />
+          <Route path="/albums" element={<Albums />} />
+          <Route path="/albums/:albumId" element={<AlbumDetails />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
