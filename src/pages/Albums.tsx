@@ -13,15 +13,20 @@ export const Albums: React.FC = () => {
     selectedGenre: "",
     listOfGenresFromAPI: [],
   });
+
   const [playlist, setPlaylist] = useState({
     selectedPlaylist: "",
     listOfPlaylistFromAPI: [],
   });
-  const [tracks, setTracks] = useState({
-    selectedTrack: "",
-    listOfTracksFromAPI: [],
-  });
   const [trackLoad, setTrackLoad] = useState(false);
+
+  const [tracks, setTracks] = useState<any[]>([]);
+  let tracksData = [];
+  if (tracks.length !== 0) {
+    localStorage.setItem("Albums", JSON.stringify(tracks));
+  } else {
+    tracksData = JSON.parse(localStorage["Albums"]);
+  }
   useEffect(() => {
     const SpotifyApi = async () => {
       const response = await axios("https://accounts.spotify.com/api/token", {
@@ -32,11 +37,6 @@ export const Albums: React.FC = () => {
         },
 
         data: "grant_type=client_credentials",
-        // {
-        //   grant_type: "client_credentials",
-        //   scope:
-        //     "playlist-modify-private user-library-read streaming user-read-email user-read-private, user-read-playback-state user-modify-playback-state",
-        // },
         method: "POST",
       });
 
@@ -98,10 +98,7 @@ export const Albums: React.FC = () => {
         },
       }
     );
-    setTracks({
-      selectedTrack: tracks.selectedTrack,
-      listOfTracksFromAPI: tracksResponse.data.items.slice(0, 9),
-    });
+    setTracks(tracksResponse.data.items.slice(0, 9));
     setTrackLoad(true);
     setLoading(false);
   };
@@ -134,8 +131,10 @@ export const Albums: React.FC = () => {
           </div>
         )}
         <div>
-          {!loading && trackLoad && (
-            <VinylContainer tracksData={tracks.listOfTracksFromAPI} />
+          {!loading && (
+            <VinylContainer
+              tracksData={(tracks.length !== 0 && tracks) || tracksData}
+            />
           )}
         </div>
       </form>

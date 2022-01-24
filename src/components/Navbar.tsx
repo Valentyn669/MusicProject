@@ -57,7 +57,6 @@ export const Navbar: React.FC = () => {
             <Link to="/contact">Contact</Link>
           </ul>
         )}
-        {/* <Threelines onClick={toggleNav} className={classes.threeLines} /> */}
         <button className={classes.btn} onClick={toggleNav}>
           <Threelines className={classes.threeLines} />
         </button>

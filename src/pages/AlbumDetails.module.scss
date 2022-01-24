@@ -1,6 +1,48 @@
 @import "../colors.scss";
+.bgImg {
+  overflow: none;
+  position: absolute;
+  filter: blur(5px) grayscale(100%) brightness(40%);
+
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100%;
+  z-index: -1;
+}
 .container {
-  width: 80%;
-  margin: 0 auto;
-  background-color: $brownish;
+  z-index: 1;
+  position: relative;
+  padding: 1rem 0;
+  color: white;
+  box-shadow: 1rem 1rem 0rem black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 70%;
+  max-height: 60%;
+  margin: 5rem auto;
+
+  img {
+    width: 40%;
+  }
+  p {
+    margin: 0;
+  }
+  h2 {
+    margin: 1rem 0;
+  }
+  svg {
+    margin-left: 0.5rem;
+    width: 100%;
+    height: 2rem;
+  }
+  a {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    color: white;
+  }
 }
