@@ -2,8 +2,8 @@ import classes from "./Navbar.module.scss";
 import logo from "../img/logo.png";
 import { ReactComponent as Threelines } from "../img/threelines.svg";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
+import CustomLink from "./CustomLink";
 export const Navbar: React.FC = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -44,17 +44,17 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <nav className={navbarClass}>
-        <Link to="/">
+        <CustomLink to="/">
           <img src={logo} alt="Music logo" />
-        </Link>
+        </CustomLink>
         {(toggleMenu || screenWidth > 700) && (
           <ul className={classes.menuList}>
-            <Link to="/">Home</Link>
-            <Link to="/blog">Blog</Link>
-            <Link to="/artists">Artists</Link>
-            <Link to="/albums">Albums</Link>
-            <Link to="/about">About</Link>
-            <Link to="/contact">Contact</Link>
+            <CustomLink to="/">Home</CustomLink>
+            <CustomLink to="/blog">Blog</CustomLink>
+            <CustomLink to="/artists">Artists</CustomLink>
+            <CustomLink to="/albums">Albums</CustomLink>
+            <CustomLink to="/about">About</CustomLink>
+            <CustomLink to="/contact">Contact</CustomLink>
           </ul>
         )}
         <button className={classes.btn} onClick={toggleNav}>

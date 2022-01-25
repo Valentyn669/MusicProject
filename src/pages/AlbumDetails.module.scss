@@ -3,7 +3,7 @@
   overflow: none;
   position: absolute;
   filter: blur(5px) grayscale(100%) brightness(40%);
-
+  transform: scale(0.98);
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
@@ -12,6 +12,7 @@
   z-index: -1;
 }
 .container {
+  background-color: $lightYellow;
   z-index: 1;
   position: relative;
   padding: 1rem 0;

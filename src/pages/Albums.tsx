@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Credentials } from "../shared/Credentials";
 import axios from "axios";
-import Dropdown from "../components/VinylComponents/Dropdown";
+import Dropdown from "../components/Dropdown";
 import VinylContainer from "../components/VinylComponents/Vinyl-Container";
 import classes from "./Albums.module.scss";
 import LoadingSpinner from "../shared/LoadingSpinner";
@@ -22,11 +22,17 @@ export const Albums: React.FC = () => {
 
   const [tracks, setTracks] = useState<any[]>([]);
   let tracksData = [];
-  if (tracks.length !== 0) {
+  if (tracks.length !== 0 || localStorage.getItem("Albums") === null) {
     localStorage.setItem("Albums", JSON.stringify(tracks));
   } else {
     tracksData = JSON.parse(localStorage["Albums"]);
   }
+  useEffect(() => {
+    if (window.localStorage["Albums"].length > 2) {
+      setTrackLoad(true);
+    }
+  }, []);
+
   useEffect(() => {
     const SpotifyApi = async () => {
       const response = await axios("https://accounts.spotify.com/api/token", {
@@ -131,7 +137,7 @@ export const Albums: React.FC = () => {
           </div>
         )}
         <div>
-          {!loading && (
+          {!loading && trackLoad && (
             <VinylContainer
               tracksData={(tracks.length !== 0 && tracks) || tracksData}
             />

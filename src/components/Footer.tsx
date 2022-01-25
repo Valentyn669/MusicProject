@@ -5,7 +5,7 @@ import { ReactComponent as Instagram } from "../img/socials/instagram.svg";
 import { ReactComponent as Tiktok } from "../img/socials/tiktok.svg";
 import { ReactComponent as Twitter } from "../img/socials/twitter.svg";
 import { ReactComponent as Youtube } from "../img/socials/youtube.svg";
-import { Link } from "react-router-dom";
+import CustomLink from "./CustomLink";
 export const Footer: React.FC = () => {
   return (
     <>
@@ -13,16 +13,16 @@ export const Footer: React.FC = () => {
         <div className={classes.main}>
           <img src={logo} alt="logo" />
           <ul>
-            <Link to="/blog">Blog</Link>
+            <CustomLink to="/blog">Blog</CustomLink>
             <p>Address: Chernivtsi, Holovna St, 1</p>
           </ul>
           <ul>
-            <Link to="/artists">Artists</Link>
-            <Link to="/albums">Albums</Link>
+            <CustomLink to="/artists">Artists</CustomLink>
+            <CustomLink to="/albums">Albums</CustomLink>
           </ul>
           <ul>
-            <Link to="/about">About</Link>
-            <Link to="/contact">Contact</Link>
+            <CustomLink to="/about">About</CustomLink>
+            <CustomLink to="/contact">Contact</CustomLink>
           </ul>
         </div>
         <div className={classes.line} />
