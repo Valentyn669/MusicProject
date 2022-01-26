@@ -57,6 +57,7 @@ export const Albums: React.FC = () => {
           },
         }
       );
+
       setGenres({
         selectedGenre: genres.selectedGenre,
         listOfGenresFromAPI: genresResponse.data.categories.items,

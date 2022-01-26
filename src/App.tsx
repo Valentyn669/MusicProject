@@ -9,11 +9,13 @@ import Albums from "./pages/Albums";
 import Artists from "./pages/Artists";
 import Contact from "./pages/Contact";
 import AlbumDetails from "./pages/AlbumDetails";
+import ScrollToTop from "./shared/ScrollToTop";
 const App = () => {
   return (
     <div className={classes.appContainer}>
       <div className={classes.contentWrap}>
         <Navbar />
+        <ScrollToTop />
         <Routes>
           <Route
             path="/"

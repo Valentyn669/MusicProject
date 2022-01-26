@@ -1,0 +1,74 @@
+@import "../../colors.scss";
+.modal {
+  text-align: center;
+  z-index: 100;
+  position: fixed;
+  top: 22vh;
+  left: 10%;
+  width: 80%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 8px;
+  button {
+    width: 20%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-family: "Be Vietnam Pro";
+    box-shadow: 0.4rem 0.4rem 0rem black;
+    background-color: $red;
+    color: white;
+    border: none;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+}
+
+.modalHeader {
+  width: 100%;
+  padding: 1rem 0rem;
+  background: $hotYellow;
+  color: white;
+}
+
+.modalHeader h2 {
+  margin: 0.5rem;
+}
+
+.modalContent {
+  padding: 1rem 0.5rem;
+  font-size: 1.25rem;
+}
+
+.modalFooter {
+  padding: 1rem 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    left: calc(50% - 20rem);
+    width: 40rem;
+  }
+}
+
+.modal-enter {
+  transform: translateY(-10rem);
+  opacity: 0;
+}
+
+.modal-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 200ms;
+}
+
+.modal-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal-exit-active {
+  transform: translateY(-10rem);
+  opacity: 0;
+  transition: all 200ms;
+}
