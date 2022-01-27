@@ -3,7 +3,6 @@ import classes from "./AlbumDetails.module.scss";
 import { ReactComponent as Spotify } from "../img/spotify.svg";
 export const AlbumDetails = () => {
   let data: any = useLocation();
-  console.log(data.state);
 
   let ms = data.state.duration_ms;
   let min = Math.floor((ms / 1000 / 60) << 0);

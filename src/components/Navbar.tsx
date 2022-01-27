@@ -50,8 +50,7 @@ export const Navbar: React.FC = () => {
         {(toggleMenu || screenWidth > 700) && (
           <ul className={classes.menuList}>
             <CustomLink to="/">Home</CustomLink>
-            <CustomLink to="/blog">Blog</CustomLink>
-            <CustomLink to="/artists">Artists</CustomLink>
+            <CustomLink to="/news">News</CustomLink>
             <CustomLink to="/albums">Albums</CustomLink>
             <CustomLink to="/about">About</CustomLink>
             <CustomLink to="/contact">Contact</CustomLink>

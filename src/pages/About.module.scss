@@ -2,9 +2,9 @@
 
 .aboutContainer {
   padding-top: 3rem;
-
+  margin: 0 auto;
+  width: 60%;
   .about {
-    width: 60%;
     margin: 0 auto;
     background-color: $lightgrey;
     box-shadow: 1rem 1rem 0rem black;
@@ -16,6 +16,7 @@
 }
 @media screen and (max-width: 700px) {
   .aboutContainer {
-    padding-top: 8rem;
+    padding-top: 5.2rem;
+    width: 100%;
   }
 }

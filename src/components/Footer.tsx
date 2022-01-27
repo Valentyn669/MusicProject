@@ -13,11 +13,10 @@ export const Footer: React.FC = () => {
         <div className={classes.main}>
           <img src={logo} alt="logo" />
           <ul>
-            <CustomLink to="/blog">Blog</CustomLink>
             <p>Address: Chernivtsi, Holovna St, 1</p>
           </ul>
           <ul>
-            <CustomLink to="/artists">Artists</CustomLink>
+            <CustomLink to="/news">News</CustomLink>
             <CustomLink to="/albums">Albums</CustomLink>
           </ul>
           <ul>

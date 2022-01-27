@@ -12,7 +12,7 @@ export const Contact: React.FC = () => {
     handleSubmit,
     formState: { errors, isValid },
     reset,
-  } = useForm({ mode: "onBlur" });
+  } = useForm();
 
   const onSubmit = async (data: any) => {
     if (data) {

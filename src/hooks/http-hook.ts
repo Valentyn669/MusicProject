@@ -1,36 +1,32 @@
-import { useState, useCallback, useRef, useEffect } from "react";
-
+import { useState, useCallback, useEffect, useRef } from "react";
+import axios from "axios";
 export const useHttpClient = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
   const activeHttpRequests = useRef<AbortController[]>([]);
 
   const sendRequest = useCallback(
-    async (url, method = "GET", body = null, headers = {}) => {
+    async (url, method = "GET", data = null, headers = {}) => {
       try {
         setIsLoading(true);
         const httpAbortCtrl = new AbortController();
         activeHttpRequests.current.push(httpAbortCtrl);
-        const response = await fetch(url, {
+        const response = await axios({
           method,
+          url,
+          data,
           headers,
-          body,
           signal: httpAbortCtrl.signal,
         });
-        const responseData = await response.json();
 
+        setIsLoading(false);
         activeHttpRequests.current = activeHttpRequests.current.filter(
           (reqCtrl) => reqCtrl !== httpAbortCtrl
         );
 
-        if (!response.ok) {
-          throw new Error(responseData.message);
-        }
-        setIsLoading(false);
-        return responseData;
+        return response;
       } catch (err: any) {
-        setError(err.message);
+        setError(err.response.data.message);
         setIsLoading(false);
         throw err;
       }
