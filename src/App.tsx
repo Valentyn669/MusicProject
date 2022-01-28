@@ -7,8 +7,9 @@ import About from "./pages/About";
 import Albums from "./pages/Albums";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
-import AlbumDetails from "./pages/AlbumDetails";
+import AlbumSingle from "./pages/AlbumSingle";
 import ScrollToTop from "./shared/ScrollToTop";
+import NewsSingle from "./pages/NewsSingle";
 const App = () => {
   return (
     <div className={classes.appContainer}>
@@ -26,8 +27,9 @@ const App = () => {
             }
           />
           <Route path="/news" element={<News />} />
+          <Route path="/news/:newsId" element={<NewsSingle />} />
           <Route path="/albums" element={<Albums />} />
-          <Route path="/albums/:albumId" element={<AlbumDetails />} />
+          <Route path="/albums/:albumId" element={<AlbumSingle />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

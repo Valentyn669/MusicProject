@@ -1,5 +1,6 @@
 import classes from "./NewsContainer.module.scss";
-import NewsSingle, { INewsSingle } from "./NewsSingle";
+import NewsLinkPage from "./NewsLinkPage";
+import { INewsSingle } from "../../pages/NewsSingle";
 
 export const NewsContainer: React.FC<{ newsData: INewsSingle[] }> = ({
   newsData,
@@ -7,15 +8,12 @@ export const NewsContainer: React.FC<{ newsData: INewsSingle[] }> = ({
   return (
     <div className={classes.container}>
       {newsData.map((news) => (
-        <NewsSingle
-          key={news.url}
-          author={news.author}
-          description={news.description}
-          publishedAt={news.publishedAt}
-          title={news.title}
-          content={news.content}
-          url={news.url}
+        <NewsLinkPage
+          key={news.title}
           urlToImage={news.urlToImage}
+          description={news.description}
+          title={news.title}
+          singleNews={news}
         />
       ))}
     </div>

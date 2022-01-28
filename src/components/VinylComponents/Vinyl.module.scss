@@ -2,10 +2,12 @@
   text-decoration: none;
 }
 .singleDisk {
-  height: 18.75rem;
+  &:hover {
+    transition: all 0.1s ease-in-out;
+    transform: scale(1.05);
+  }
   width: 18.75rem;
   position: relative;
-
   .tags {
     color: white;
     h1 {
@@ -65,7 +67,6 @@
 @media screen and (max-width: 400px) {
   .singleDisk {
     margin-bottom: 4rem;
-    height: 14rem;
     width: 14rem;
     position: relative;
 

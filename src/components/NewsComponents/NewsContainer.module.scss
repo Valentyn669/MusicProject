@@ -2,6 +2,14 @@
 .container {
   width: 90vw;
   margin: 0 auto;
-
-  background-color: $lightYellow;
+  margin-top: 2rem;
+  li {
+    list-style: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    margin-top: 5.3rem;
+    width: 100vw;
+  }
 }

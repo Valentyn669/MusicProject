@@ -5,6 +5,7 @@
   margin: 0 auto;
   width: 60%;
   .about {
+    text-align: justify;
     margin: 0 auto;
     background-color: $lightgrey;
     box-shadow: 1rem 1rem 0rem black;
@@ -18,5 +19,8 @@
   .aboutContainer {
     padding-top: 5.2rem;
     width: 100%;
+    .about {
+      margin-bottom: 0;
+    }
   }
 }

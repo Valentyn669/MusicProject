@@ -1,7 +1,7 @@
-import { useLocation } from "react-router";
-import classes from "./AlbumDetails.module.scss";
+import { useLocation } from "react-router-dom";
+import classes from "./AlbumSingle.module.scss";
 import { ReactComponent as Spotify } from "../img/spotify.svg";
-export const AlbumDetails = () => {
+export const AlbumSingle = () => {
   let data: any = useLocation();
 
   let ms = data.state.duration_ms;
@@ -47,4 +47,4 @@ export const AlbumDetails = () => {
   );
 };
 
-export default AlbumDetails;
+export default AlbumSingle;

@@ -111,7 +111,7 @@ export const Albums: React.FC = () => {
   };
 
   return (
-    <div className="container">
+    <>
       <form onSubmit={buttonClicked} className={classes.albumForm}>
         <div className={classes.formContainer}>
           <Dropdown
@@ -132,20 +132,20 @@ export const Albums: React.FC = () => {
             </button>
           </div>
         </div>
-        {loading && (
-          <div className="center">
-            <LoadingSpinner />
-          </div>
-        )}
-        <div>
-          {!loading && trackLoad && (
-            <VinylContainer
-              tracksData={(tracks.length !== 0 && tracks) || tracksData}
-            />
-          )}
-        </div>
       </form>
-    </div>
+      {loading && (
+        <div className="center">
+          <LoadingSpinner />
+        </div>
+      )}
+      <div className={classes.vinylContainer}>
+        {!loading && trackLoad && (
+          <VinylContainer
+            tracksData={(tracks.length !== 0 && tracks) || tracksData}
+          />
+        )}
+      </div>
+    </>
   );
 };
 
