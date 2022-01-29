@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 import { Credentials } from "../shared/Credentials";
-import axios from "axios";
 import Dropdown from "../components/Dropdown";
 import VinylContainer from "../components/VinylComponents/Vinyl-Container";
 import classes from "./Albums.module.scss";
 import LoadingSpinner from "../shared/LoadingSpinner";
+import Button from "../shared/Button";
+import { useHttpClient } from "../hooks/http-hook";
+import ErrorModal from "../shared/Modal/ErrorModal";
 export const Albums: React.FC = () => {
+  const [loading, setLoading] = useState(false);
+  const { error, sendRequest, clearError } = useHttpClient();
   const spotify = Credentials();
   const [token, setToken] = useState("");
-  const [loading, setLoading] = useState(false);
+
   const [genres, setGenres] = useState({
     selectedGenre: "",
     listOfGenresFromAPI: [],
@@ -35,26 +39,25 @@ export const Albums: React.FC = () => {
 
   useEffect(() => {
     const SpotifyApi = async () => {
-      const response = await axios("https://accounts.spotify.com/api/token", {
-        headers: {
+      const response = await sendRequest(
+        "https://accounts.spotify.com/api/token",
+        "POST",
+        "grant_type=client_credentials",
+        {
           "Content-Type": "application/x-www-form-urlencoded",
           Authorization:
             "Basic " + btoa(spotify.ClientId + ":" + spotify.ClientSecret),
-        },
-
-        data: "grant_type=client_credentials",
-        method: "POST",
-      });
+        }
+      );
 
       setToken(response.data.access_token);
 
-      const genresResponse = await axios(
+      const genresResponse = await sendRequest(
         "https://api.spotify.com/v1/browse/categories",
+        "GET",
+        null,
         {
-          method: "GET",
-          headers: {
-            Authorization: "Bearer " + response.data.access_token,
-          },
+          Authorization: "Bearer " + response.data.access_token,
         }
       );
 
@@ -64,7 +67,12 @@ export const Albums: React.FC = () => {
       });
     };
     SpotifyApi();
-  }, [genres.selectedGenre, spotify.ClientId, spotify.ClientSecret]);
+  }, [
+    genres.selectedGenre,
+    sendRequest,
+    spotify.ClientId,
+    spotify.ClientSecret,
+  ]);
 
   const genreChanged = async (val: string) => {
     setGenres({
@@ -72,12 +80,11 @@ export const Albums: React.FC = () => {
       listOfGenresFromAPI: genres.listOfGenresFromAPI,
     });
 
-    const playlistResponse = await axios(
+    const playlistResponse = await sendRequest(
       `https://api.spotify.com/v1/browse/categories/${val}/playlists?limit=10`,
-      {
-        method: "GET",
-        headers: { Authorization: "Bearer " + token },
-      }
+      "GET",
+      null,
+      { Authorization: "Bearer " + token }
     );
     setPlaylist({
       selectedPlaylist: playlist.selectedPlaylist,
@@ -96,40 +103,40 @@ export const Albums: React.FC = () => {
     setLoading(true);
     e.preventDefault();
 
-    const tracksResponse = await axios(
-      `https://api.spotify.com/v1/playlists/${playlist.selectedPlaylist}/tracks?limit=10`,
+    const tracksResponse = await sendRequest(
+      `https://api.spotify.com/v1/playlists/${playlist.selectedPlaylist}/tracks?limit=9`,
+      "GET",
+      null,
       {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer " + token,
-        },
+        Authorization: "Bearer " + token,
       }
     );
-    setTracks(tracksResponse.data.items.slice(0, 9));
+    setTracks(tracksResponse.data.items);
     setTrackLoad(true);
     setLoading(false);
   };
 
   return (
     <>
+      <ErrorModal error={error} onClear={clearError} />
       <form onSubmit={buttonClicked} className={classes.albumForm}>
         <div className={classes.formContainer}>
           <Dropdown
-            label="Genre :"
+            label="Genre"
             options={genres.listOfGenresFromAPI}
             selectedValue={genres.selectedGenre}
             changed={genreChanged}
           />
           <Dropdown
-            label="Playlist :"
+            label="Playlist"
             options={playlist.listOfPlaylistFromAPI}
             selectedValue={playlist.selectedPlaylist}
             changed={playlistChanged}
           />
           <div className={classes.buttonContainer}>
-            <button type="submit" className={classes.Dropdownbutton}>
+            <Button disabled={!playlist.selectedPlaylist} type="submit">
               Search
-            </button>
+            </Button>
           </div>
         </div>
       </form>

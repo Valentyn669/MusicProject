@@ -1,10 +1,12 @@
 @import "../colors.scss";
-.container {
-}
+
 .albumForm {
   .formContainer {
     box-shadow: 1rem 1rem 0rem black;
-    background-color: $lightgrey;
+    background-image: url("../img/guitar.jpg");
+    background-size: cover;
+
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,14 +18,12 @@
     margin-bottom: 2rem;
 
     .buttonContainer {
-      .Dropdownbutton {
-        border-radius: 0.3rem;
-        border: none;
-        background-color: $brownish;
-        color: white;
-        font-size: 1rem;
-        padding: 1rem 2rem;
+      button {
+        width: 180%;
+        padding: 0.6rem 1rem;
       }
+      display: flex;
+      justify-content: center;
     }
   }
 }

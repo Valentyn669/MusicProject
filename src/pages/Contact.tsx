@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useHttpClient } from "../hooks/http-hook";
 import LoadingSpinner from "../shared/LoadingSpinner";
 import ErrorModal from "../shared/Modal/ErrorModal";
+import Button from "../shared/Button";
 export const Contact: React.FC = () => {
   const [sentSuccessfully, setSentSuccessfully] = useState(false);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -12,7 +13,9 @@ export const Contact: React.FC = () => {
     handleSubmit,
     formState: { errors, isValid },
     reset,
-  } = useForm();
+  } = useForm({
+    mode: "onTouched",
+  });
 
   const onSubmit = async (data: any) => {
     if (data) {
@@ -113,9 +116,9 @@ export const Contact: React.FC = () => {
               <p>{errors?.formMessage?.message || "Error"}</p>
             )}
           </div>
-          <button type="submit" disabled={!isValid}>
+          <Button type="submit" disabled={!isValid}>
             Submit
-          </button>
+          </Button>
         </form>
       </div>
     </>

@@ -42,21 +42,10 @@
       resize: none;
       font-family: "Be Vietnam Pro";
     }
+
     button {
       width: 30%;
       margin: 0 auto;
-      padding: 1rem;
-      font-size: 1.4rem;
-      font-family: "Be Vietnam Pro";
-      box-shadow: 0.5rem 0.5rem 0rem black;
-      background-color: $red;
-      color: white;
-      border: none;
-      border-radius: 0.2rem;
-      cursor: pointer;
-      &:disabled {
-        background-color: $brownish;
-      }
     }
   }
 }

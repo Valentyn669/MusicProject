@@ -20,9 +20,8 @@ const Dropdown: FC<IdropDown> = ({
 
   return (
     <div className={classes.container}>
-      <label>{label}</label>
       <select value={selectedValue} onChange={dropdownChanged}>
-        <option key={0}>Select...</option>
+        <option key={0}>{label}</option>
         {options.map((item: any, idx: number) => (
           <option key={idx + 1} value={item.id}>
             {item.name}

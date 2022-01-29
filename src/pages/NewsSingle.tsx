@@ -17,7 +17,6 @@ export const NewsSingle = () => {
   let data: any = useLocation();
   const { author, description, publishedAt, content, title, url, urlToImage } =
     data.state;
-  console.log(data);
   const time = new Date(publishedAt).toLocaleDateString("uk-UA");
 
   return (
