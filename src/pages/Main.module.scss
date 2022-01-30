@@ -1,3 +1,4 @@
+@import "../colors.scss";
 .mainContainer {
   height: 75vh;
   width: 100vw;
@@ -11,22 +12,37 @@
   align-items: center;
 
   .mainText {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 0.125rem;
     color: white;
-    font-size: 3.5rem;
-    text-align: center;
-    padding: 2.54rem;
-    width: 50%;
-    height: 12.5rem;
+    padding: 0rem 2.54rem;
+    width: 30%;
     background-color: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(0.31rem);
+    .musicLogo {
+      font-size: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      img {
+        width: 7rem;
+        filter: invert(100%);
+        margin-right: -0.6rem;
+      }
+    }
+    .bandsText {
+      margin-top: -7.7rem;
+      margin-left: 1.5rem;
+      font-size: 3rem;
+      color: $hotYellow;
+    }
   }
 }
 @media screen and (max-width: 700px) {
   .mainContainer {
     margin-top: 0;
+    .mainText {
+      width: 60%;
+    }
   }
 }

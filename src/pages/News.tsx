@@ -116,7 +116,7 @@ export const News: React.FC = () => {
         {!isLoading && (
           <>
             <NewsContainer
-              newsData={(newsData.length !== 0 && newsData) || fakeNews || []}
+              newsData={(newsData.length !== 0 && newsData) || []}
             />
             <div className={classes.pagination}>
               {prevValid && <Button onClick={PrevHandler}>Previous</Button>}

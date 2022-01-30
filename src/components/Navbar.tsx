@@ -58,7 +58,7 @@ export const Navbar: React.FC = () => {
   const closeNavHandler = () => {
     setToggleMenu(false);
   };
-  console.log(toggleMenu);
+
   return (
     <>
       <nav className={navbarClass}>

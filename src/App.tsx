@@ -17,15 +17,7 @@ const App = () => {
         <Navbar />
         <ScrollToTop />
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Main />
-                {/* <VinylContainer artistsDatabase={artistsDatabase} /> */}
-              </>
-            }
-          />
+          <Route path="/" element={<Main />} />
           <Route path="/news" element={<News />} />
           <Route path="/news/:newsId" element={<NewsSingle />} />
           <Route path="/albums" element={<Albums />} />
