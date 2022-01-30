@@ -1,8 +1,9 @@
 import classes from "./Navbar.module.scss";
 import logo from "../img/logo.png";
 import { ReactComponent as Threelines } from "../img/threelines.svg";
+import { ReactComponent as CrossSVG } from "../img/cross.svg";
 import { useEffect, useState } from "react";
-
+import { CSSTransition } from "react-transition-group";
 import CustomLink from "./CustomLink";
 export const Navbar: React.FC = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -27,13 +28,13 @@ export const Navbar: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const changeWidth = () => {
+    const scroll = () => {
       setScrollHeight(window.scrollY);
     };
-    window.addEventListener("scroll", changeWidth);
+    window.addEventListener("scroll", scroll);
 
     return () => {
-      window.removeEventListener("scroll", changeWidth);
+      window.removeEventListener("scroll", scroll);
     };
   }, []);
 
@@ -57,13 +58,15 @@ export const Navbar: React.FC = () => {
   const closeNavHandler = () => {
     setToggleMenu(false);
   };
-
+  console.log(toggleMenu);
   return (
     <>
       <nav className={navbarClass}>
-        <CustomLink to="/">
-          <img src={logo} alt="Music logo" />
-        </CustomLink>
+        <div>
+          <CustomLink to="/">
+            <img src={logo} alt="Music logo" />
+          </CustomLink>
+        </div>
         {(toggleMenu || screenWidth > 700) && (
           <ul className={classes.menuList}>
             <CustomLink closeNav={closeNavHandler} to="/">
@@ -83,8 +86,42 @@ export const Navbar: React.FC = () => {
             </CustomLink>
           </ul>
         )}
+
         <button className={classes.btn} onClick={toggleNav}>
-          <Threelines className={classes.threeLines} />
+          <div className={classes.hamburger}>
+            <CSSTransition
+              in={!toggleMenu}
+              mountOnEnter
+              unmountOnExit
+              timeout={200}
+              classNames={{
+                enterActive: classes["ham-enter-active"],
+                enter: classes["ham-enter"],
+                exit: classes["ham-exit"],
+                exitActive: classes["ham-exit-active"],
+              }}
+            >
+              <div className={classes.box}>
+                <Threelines className={classes.threeLines} />
+              </div>
+            </CSSTransition>
+            <CSSTransition
+              in={toggleMenu}
+              mountOnEnter
+              unmountOnExit
+              timeout={200}
+              classNames={{
+                enterActive: classes["ham-enter-active"],
+                enter: classes["ham-enter"],
+                exit: classes["ham-exit"],
+                exitActive: classes["ham-exit-active"],
+              }}
+            >
+              <div className={classes.box}>
+                <CrossSVG className={classes.crossSVG} />
+              </div>
+            </CSSTransition>
+          </div>
         </button>
       </nav>
     </>

@@ -109,7 +109,7 @@ export const News: React.FC = () => {
       <ErrorModal error={error} onClear={clearError} />
       <div>
         {isLoading && (
-          <div className="center">
+          <div style={{ marginTop: "150px" }} className="center">
             <LoadingSpinner />
           </div>
         )}

@@ -11,6 +11,7 @@
   justify-content: space-around;
   height: 5rem;
   color: white;
+
   img {
     filter: invert(100%);
     width: 3.75rem;
@@ -40,10 +41,50 @@
     display: none;
     border: none;
     background-color: transparent;
-    .threeLines {
-      fill: white;
-      width: 1.6rem;
-      height: 1.6rem;
+    .hamburger {
+      .ham-enter {
+        opacity: 0;
+        transform: scale(0);
+      }
+      .ham-enter-active {
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        opacity: 1;
+        transform: scale(1);
+      }
+      .ham-exit {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .ham-exit-active {
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        opacity: 0;
+        transform: scale(0);
+      }
+
+      .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: -2.6rem;
+        top: -2.95rem;
+        height: 2.1rem;
+        width: 2rem;
+        margin: 3rem;
+        cursor: pointer;
+      }
+      .threeLines {
+        position: relative;
+        fill: white;
+        width: 2rem;
+        height: 2rem;
+      }
+      .crossSVG {
+        position: relative;
+        fill: white;
+        width: 1.8rem;
+        height: 1.8rem;
+      }
     }
   }
 }
