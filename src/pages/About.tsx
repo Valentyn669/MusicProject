@@ -4,17 +4,16 @@ export const About: React.FC = () => {
     <div className={classes.aboutContainer}>
       <div className={classes.about}>
         <h1>About:</h1>
+        <p>Music Bands is a great hub for music enthusiast!</p>
         <p>
-          Genius celebrates More Than The Music—the lyrics, the stories behind
-          the songs, and the creative connections that meaningfully drive
-          culture. We champion curiosity and believe that everyone has music
-          knowledge to share: insights, intel, and musings that make us more
-          informed, engaged music lovers.
+          We champion curiosity and believe that everyone has music knowledge to
+          share: insights, intel, and musings that make us more informed,
+          engaged music lovers.
         </p>
         <p>
           As the world's biggest music encyclopedia with a passionate community
-          of more than two million contributors, Genius is a destination for
-          artists, creatives, and superfans to discuss and deconstruct all
+          of more than two million contributors, Music Bands is a destination
+          for artists, creatives, and superfans to discuss and deconstruct all
           things music.
         </p>
         <p>

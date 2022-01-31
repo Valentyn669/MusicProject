@@ -1,0 +1,57 @@
+.imageContainer {
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  overflow: hidden;
+  img {
+    height: 30rem;
+  }
+
+  .left-enter {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  .left-enter-active {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .left-exit {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .left-exit-active {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  .right-enter {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+  .right-enter-active {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .right-exit {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .right-exit-active {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+}
+@media screen and (max-width: 1100px) {
+  .imageContainer {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .imageContainer {
+    width: 100%;
+  }
+}

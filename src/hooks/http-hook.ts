@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import axios from "axios";
 export const useHttpClient = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<null | string>(null);
   const activeHttpRequests = useRef<AbortController[]>([]);
 
   const sendRequest = useCallback(
@@ -23,11 +23,14 @@ export const useHttpClient = () => {
         activeHttpRequests.current = activeHttpRequests.current.filter(
           (reqCtrl) => reqCtrl !== httpAbortCtrl
         );
-
         return response;
       } catch (err: any) {
-        setError(err.response.data.message);
         setIsLoading(false);
+        if (!err.response) {
+          setError("Network error, our servers may be offline :(");
+        } else {
+          setError(err.response.data.message);
+        }
         throw err;
       }
     },

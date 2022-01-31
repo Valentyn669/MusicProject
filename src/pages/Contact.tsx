@@ -1,10 +1,11 @@
 import classes from "./Contact.module.scss";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { useHttpClient } from "../hooks/http-hook";
 import LoadingSpinner from "../shared/LoadingSpinner";
 import ErrorModal from "../shared/Modal/ErrorModal";
 import Button from "../shared/Button";
+
 export const Contact: React.FC = () => {
   const [sentSuccessfully, setSentSuccessfully] = useState(false);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -16,8 +17,7 @@ export const Contact: React.FC = () => {
   } = useForm({
     mode: "onTouched",
   });
-
-  const onSubmit = async (data: any) => {
+  const onSubmit: SubmitHandler<{ [x: string]: string }> = async (data) => {
     if (data) {
       try {
         await sendRequest(

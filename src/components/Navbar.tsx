@@ -4,11 +4,14 @@ import { ReactComponent as Threelines } from "../img/threelines.svg";
 import { ReactComponent as CrossSVG } from "../img/cross.svg";
 import { useEffect, useState } from "react";
 import { CSSTransition } from "react-transition-group";
+import { useContext } from "react";
+import mbContext from "../context/mbContext";
 import CustomLink from "./CustomLink";
 export const Navbar: React.FC = () => {
+  const mbCtx = useContext(mbContext);
   const [toggleMenu, setToggleMenu] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [scrollHeight, setScrollHeight] = useState(window.scrollY);
+
   const toggleNav = () => {
     setToggleMenu(!toggleMenu);
   };
@@ -20,6 +23,7 @@ export const Navbar: React.FC = () => {
         setToggleMenu(false);
       }
     };
+
     window.addEventListener("click", clickOutside);
 
     return () => {
@@ -28,29 +32,17 @@ export const Navbar: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const scroll = () => {
-      setScrollHeight(window.scrollY);
-    };
-    window.addEventListener("scroll", scroll);
-
-    return () => {
-      window.removeEventListener("scroll", scroll);
-    };
-  }, []);
-
-  useEffect(() => {
     const changeWidth = () => {
       setScreenWidth(window.innerWidth);
     };
     window.addEventListener("resize", changeWidth);
-
     return () => {
       window.removeEventListener("resize", changeWidth);
     };
   }, []);
 
   let navbarClass: any;
-  if (scrollHeight < 400) {
+  if (mbCtx.scrollHeight < 400) {
     navbarClass = classes.navbar;
   } else {
     navbarClass = `${classes.navbar} ${classes.scrollBar}`;
@@ -58,7 +50,6 @@ export const Navbar: React.FC = () => {
   const closeNavHandler = () => {
     setToggleMenu(false);
   };
-
   return (
     <>
       <nav className={navbarClass}>
