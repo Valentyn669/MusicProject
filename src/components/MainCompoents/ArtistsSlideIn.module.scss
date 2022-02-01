@@ -1,23 +1,42 @@
 @import "../../colors.scss";
 
 .background {
-  background-color: $grey;
+  background-color: $brownish;
   color: white;
   padding: 3rem 0;
   .container {
-    width: 80%;
-    background-color: grey;
-    margin: 0 auto;
-    padding: 1rem;
-
-    h1 {
-      color: $hotYellow;
-      text-align: center;
+    width: 60%;
+    background-color: $grey;
+    box-shadow: 1rem 1rem 0rem black;
+    transition: box-shadow 0.3s ease-in-out;
+    &:hover {
+      box-shadow: 0.5rem 0.5rem 0rem black;
     }
-    p {
+    margin: 2rem auto;
+    padding: 1rem;
+    .innerArtist {
+      display: inline-block;
       padding: 0rem 1rem;
-      font-size: 1.25rem;
-      text-align: justify;
+      h1 {
+        color: $hotYellow;
+        text-align: center;
+      }
+      p {
+        padding: 0rem 1rem;
+        font-size: 1rem;
+        text-align: justify;
+      }
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .background {
+    .container {
+      padding: 0;
+      width: 100%;
+      .innerArtist {
+        padding: 1rem 3rem;
+      }
     }
   }
 }

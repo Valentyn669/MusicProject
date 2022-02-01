@@ -12,13 +12,17 @@
   z-index: -1;
 }
 .container {
+  display: flex;
   background-color: $brownish;
   z-index: 1;
   position: relative;
   padding: 1rem 0;
   color: white;
   box-shadow: 1rem 1rem 0rem black;
-  display: flex;
+  transition: box-shadow 0.3s ease-in-out;
+  &:hover {
+    box-shadow: 0.5rem 0.5rem 0rem black;
+  }
   flex-direction: column;
   justify-content: center;
   align-items: center;

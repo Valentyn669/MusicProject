@@ -3,6 +3,10 @@
 .albumForm {
   .formContainer {
     box-shadow: 1rem 1rem 0rem black;
+    transition: box-shadow 0.3s ease-in-out;
+    &:hover {
+      box-shadow: 0.5rem 0.5rem 0rem black;
+    }
     background-image: url("../img/guitar.jpg");
     background-size: cover;
 

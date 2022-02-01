@@ -5,10 +5,10 @@ import { ReactComponent as CrossSVG } from "../img/cross.svg";
 import { useEffect, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useContext } from "react";
-import mbContext from "../context/mbContext";
+import { MusicBandContext } from "../context/MusicBandContext";
 import CustomLink from "./CustomLink";
 export const Navbar: React.FC = () => {
-  const mbCtx = useContext(mbContext);
+  const mbCtx = useContext(MusicBandContext);
   const [toggleMenu, setToggleMenu] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 

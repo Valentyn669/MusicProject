@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext, useRef, FC } from "react";
-import mbContext from "../../context/mbContext";
+import { MusicBandContext } from "../../context/MusicBandContext";
 import "./ArtistImage.scss";
 import { CSSTransition } from "react-transition-group";
 const ArtistImage: FC<{ src: string; slideDir: "right" | "left" }> = ({
@@ -7,13 +7,13 @@ const ArtistImage: FC<{ src: string; slideDir: "right" | "left" }> = ({
   slideDir,
 }) => {
   const ref = useRef<any>();
-  const mbCtx = useContext(mbContext);
+  const mbCtx = useContext(MusicBandContext);
   const [imgData, setImgData] = useState<any>(null);
   const [isHalfShow, setIsHalfShown] = useState<boolean>(false);
   const [isNotScrolledPast, setIsNotScrolledPast] = useState<boolean>(false);
   useEffect(() => {
-    const slideInAt = mbCtx.scrollHeight + window.innerHeight - 240;
-    const imageBottom = imgData + 240;
+    const slideInAt = mbCtx.scrollHeight + window.innerHeight - 100;
+    const imageBottom = imgData + 400;
     setIsHalfShown(slideInAt > imgData);
     setIsNotScrolledPast(mbCtx.scrollHeight < imageBottom);
   }, [imgData, mbCtx.scrollHeight]);

@@ -1,6 +1,7 @@
 import ArtistsSlideIn from "../components/MainCompoents/ArtistsSlideIn";
 import logo from "../img/logo.png";
 import classes from "./Main.module.scss";
+
 export const Main: React.FC = () => {
   return (
     <>

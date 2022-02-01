@@ -1,10 +1,14 @@
 @import "../colors.scss";
 .container {
   background-color: $lightYellow;
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
   margin-bottom: 2rem;
   box-shadow: 1rem 1rem 0rem black;
+  transition: box-shadow 0.3s ease-in-out;
+  &:hover {
+    box-shadow: 0.5rem 0.5rem 0rem black;
+  }
   .content {
     padding: 1rem 3rem;
     list-style: none;

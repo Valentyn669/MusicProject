@@ -10,28 +10,13 @@ import Contact from "./pages/Contact";
 import AlbumSingle from "./pages/AlbumSingle";
 import ScrollToTop from "./shared/ScrollToTop";
 import NewsSingle from "./pages/NewsSingle";
-import mbContext from "./context/mbContext";
-import { useEffect, useState } from "react";
-import debounce from "lodash.debounce";
+import { MusicBandContextProvider } from "./context/MusicBandContext";
+
 const App = () => {
-  const [scrollHeight, setScrollHeight] = useState(window.scrollY);
-
-  useEffect(() => {
-    const scroll = () => {
-      setScrollHeight(window.scrollY);
-    };
-    const debouncedScroll = debounce(scroll, 100);
-    window.addEventListener("scroll", debouncedScroll);
-
-    return () => {
-      window.removeEventListener("scroll", debouncedScroll);
-    };
-  }, []);
-
   return (
     <div className={classes.appContainer}>
       <div className={classes.contentWrap}>
-        <mbContext.Provider value={{ scrollHeight }}>
+        <MusicBandContextProvider>
           <Navbar />
           <ScrollToTop />
           <Routes>
@@ -43,7 +28,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
-        </mbContext.Provider>
+        </MusicBandContextProvider>
       </div>
       <Footer />
     </div>

@@ -10,6 +10,10 @@
     flex-direction: column;
     gap: 1rem;
     box-shadow: 1rem 1rem 0rem black;
+    transition: box-shadow 0.3s ease-in-out;
+    &:hover {
+      box-shadow: 0.5rem 0.5rem 0rem black;
+    }
 
     .loadingForm {
       margin: 0 auto;
@@ -34,12 +38,14 @@
       border-radius: 0.4rem;
       font-size: 1.2rem;
       font-family: "Be Vietnam Pro";
+      border: none;
     }
     textarea {
       padding: 1rem;
       height: 15rem;
       font-size: 1.2rem;
       resize: none;
+      border: none;
       font-family: "Be Vietnam Pro";
     }
 
