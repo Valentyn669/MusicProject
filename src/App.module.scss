@@ -9,7 +9,13 @@
   background-size: cover;
   background-position: 100%;
 }
-
+.centerScreen {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
 .contentWrap {
   flex: 1;
 }
