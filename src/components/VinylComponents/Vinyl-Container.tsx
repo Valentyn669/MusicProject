@@ -12,21 +12,24 @@ interface databaseProps {
     };
   }[];
 }
-
 export const VinylContainer: React.FC<databaseProps> = ({ tracksData }) => {
   return (
     <div className={classes.container}>
       {tracksData.map((data: any) => {
-        return (
-          <Vinyl
-            key={data.track.id}
-            id={data.track.id}
-            coverUrl={data.track.album.images[0].url}
-            albumTitle={data.track.album.name}
-            artist={data.track.album.artists[0].name}
-            details={data.track}
-          />
-        );
+        if (data.track === null) {
+          return <></>;
+        } else {
+          return (
+            <Vinyl
+              key={data.track.id}
+              id={data.track.id}
+              coverUrl={data.track.album.images[0].url}
+              albumTitle={data.track.album.name}
+              artist={data.track.album.artists[0].name}
+              details={data.track}
+            />
+          );
+        }
       })}
     </div>
   );

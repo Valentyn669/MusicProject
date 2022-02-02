@@ -15,8 +15,8 @@ const ArtistsContainer: FC<{
       <div className={classes.innerArtist}>
         <h1>{header}</h1>
         <ArtistImage slideDir={slideDir} src={image} />
-        {text.map((txt: string, i: number) => (
-          <p key={i}>{txt}</p>
+        {text.map((txt: string) => (
+          <p key={txt}>{txt}</p>
         ))}
       </div>
     </div>

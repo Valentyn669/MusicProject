@@ -21,7 +21,7 @@ export const Contact: React.FC = () => {
     if (data) {
       try {
         await sendRequest(
-          "http://localhost:5000/contact",
+          `${process.env.REACT_APP_CONTACT_URL}/contact`,
           "POST",
           JSON.stringify(data),
           {
